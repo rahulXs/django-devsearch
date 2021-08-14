@@ -91,14 +91,14 @@
           {% for project in projects %}
           <tr>
             <td class="settings__thumbnail">
-              <a href="{% url 'project' project.id %}"><img src="{{project.imageURL}}" alt="Project Thumbnail" /></a>
+              <a href="{% url 'project' project.id %}"><img src="{{project.featured_image.url}}" alt="Project Thumbnail" /></a>
             </td>
             <td class="settings__tableInfo">
               <a href="{% url 'project' project.id %}">{{project.title}}</a>
               <p>{{project.description|slice:"150"}}</p>
             </td>
             <td class="settings__tableActions">
-              <a class="tag tag--pill tag--main settings__btn" href=""><i
+              <a class="tag tag--pill tag--main settings__btn" href="{% url 'edit-project' %}"><i
                   class="im im-edit"></i> Edit</a>
               <a class="tag tag--pill tag--main settings__btn"
                 href="{% url 'delete-project'  project.id %}?next=/account"><i class="im im-x-mark-circle-o"></i>
