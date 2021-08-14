@@ -24,8 +24,7 @@ def createProject(request):
             project = form.save(commit=False)
             project.owner = profile
             project.save()
-
-            return redirect('account')
+            return redirect('projects')
 
     context = {'form': form}
     return render(request, "projects/project_form.html", context)
@@ -43,7 +42,7 @@ def updateProject(request, pk):
         if form.is_valid():
             project = form.save()
             
-            return redirect('account')
+            return redirect('projects')
 
     context = {'form': form, 'project': project}
     return render(request, "projects/project_form.html", context)
