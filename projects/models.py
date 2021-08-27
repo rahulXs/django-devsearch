@@ -32,6 +32,8 @@ class Review(models.Model):
         ('down', 'Down Vote')
     )
     #owner
+    # on_delete property, delete review when user is deleted.
+    owner = models.ForeignKey(Profile, on_delete=models.CASCADE, null=True, blank=True)
     project = models.ForeignKey(Project, on_delete = models.CASCADE)
     body = models.TextField(blank = True, null = True)
     value = models.CharField(max_length = 200, choices = VOTE_TYPE)
@@ -40,6 +42,10 @@ class Review(models.Model):
 
     def __str__(self):
         return self.value
+
+    # Bind owner(person posting review) and project together so that a user can give only one review for a project
+    class Meta:
+        unique_together = [['owner', 'project']]
 
 class Tag(models.Model):
     name = models.CharField(max_length = 200)
