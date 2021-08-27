@@ -39,6 +39,12 @@ class Project(models.Model):
 
         self.save()
 
+    # To check and present nice output to user incase the user has already voted.
+    # Check single-project.html form conditions.
+    @property
+    def reviewers(self):
+        queryset = self.review_set.all().values_list('owner__id', flat=True)
+        return queryset
 
 class Review(models.Model):
     VOTE_TYPE = (
