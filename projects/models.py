@@ -23,7 +23,21 @@ class Project(models.Model):
         return self.title
 
     class Meta:
-        ordering = ['created']
+        ordering = ['-vote_ratio', '-vote_total', 'created']
+
+    # Property decorator because then it can be used as an attribute instead of function,
+    # Check projects/view for its uses.
+    @property
+    def getVoteCount(self):
+        reviews = self.review_set.all()
+        upVotes = reviews.filter(value='up').count()
+        totalVotes = reviews.count()
+
+        ratio = (upVotes / totalVotes) * 100
+        self.vote_total = totalVotes
+        self.vote_ratio = ratio
+
+        self.save()
 
 
 class Review(models.Model):

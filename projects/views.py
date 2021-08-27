@@ -26,6 +26,11 @@ def project(request, pk):
         review.owner = request.user.profile
         review.save()
 
+        # getVoteCount is function using decorator thats why it can be used as an attribute.
+        # Check projects/models.py for its declaration
+        
+        projectObj.getVoteCount
+
         messages.success(request, 'Your review was successfully submitted!')
         return redirect('project', pk=projectObj.id)
 
