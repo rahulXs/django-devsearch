@@ -29,6 +29,8 @@ pip install -r requirements.txt
 
 Refer to [drawsql.app django-devsearch-schema](https://drawsql.app/self-122/diagrams/django-devsearch-schema)
 
+![Schema design](https://github.com/rahulXs/django-devsearch/blob/main/drawSQL-export.png?raw=true)
+
 ## Usage
 
 ```bash
