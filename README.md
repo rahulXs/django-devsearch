@@ -1,12 +1,40 @@
-A social media for developers. 
-Devs can:
-    - Create profiles
-    - List out projects
-    - Search for other developers and projects
-    - See live demo, read about project details
-    - Vote anonomously for projects and comment under a project
-    - Send/receive messages to/from other developers through inbox feature
+## django-devsearch
 
-Schema design:
-    - Using drawsql.app
-    - https://drawsql.app/dennis-ivy/diagrams/dev-search
+A platform for developers to create profile, list out projects, search other developers and their projects. Kind of a social media application for developer community.
+
+#### Features
+
+- Create profiles
+- Search for other developers by name, technology etc
+- Search for projects by name, technology etc
+- Vote and review a project
+- Send and receive messages (Inbox feature)
+
+## Installation
+
+Create and activate virtualenv `devsearch`:
+
+```bash
+virtualenv ~/virtualenvs/devsearch
+. ~/virtualenvs/devsearch/bin/activate
+```
+
+Install required packages in virtualenv:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Schema Design
+
+Refer to [drawsql.app django-devsearch-schema](https://drawsql.app/self-122/diagrams/django-devsearch-schema)
+
+## Usage
+
+```bash
+# Start django server 
+python manage.py runserver
+```
+
+## Reference
+Django Devsearch tool by Dennis Ivy.
